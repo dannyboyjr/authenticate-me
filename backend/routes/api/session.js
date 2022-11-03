@@ -35,4 +35,15 @@ router.delete('/', (_req, res) => {
     }
   );
 
+
+  // return ession user as Json under key of user. return empty object if no session
+  router.get('/', restoreUser, (req, res) => {
+      const { user } = req;
+
+      if (user) {
+        return res.json({ user: user.toSafeObject()});
+      } else return res.json({});
+    }
+  );
+
 module.exports= router;
