@@ -27,4 +27,12 @@ router.post(
     }
 );
 
+
+//logout route - removes token cookie and returns json success
+router.delete('/', (_req, res) => {
+      res.clearCookie('token');
+      return res.json({ message: 'logout success' });
+    }
+  );
+
 module.exports= router;
